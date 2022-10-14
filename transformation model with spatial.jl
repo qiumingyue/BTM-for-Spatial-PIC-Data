@@ -262,7 +262,7 @@ function loglikelihood(beta,gamma,spatial,r)
   end
   return(F_1)
 end
-#function est(r, order_1, n_knots, niter, a_eta, b_eta, a_lambda, b_lambda, data)
+function est(r, order_1, n_knots, niter, a_eta, b_eta, a_lambda, b_lambda, data)
   xcov = Matrix(data[:,1:2])
   L = data[:,3]
   R = data[:,4]
@@ -385,7 +385,7 @@ end
   upper = result_quantile[:,6]
   estimator = result_summary[:,2]
   
-  #=gamcoef_bar = [(mean(pargam[1000:6000,i])) for i = 1:k]
+  gamcoef_bar = [(mean(pargam[1000:6000,i])) for i = 1:k]
   spatialcof_bar = [(mean(parspatial_all[1000:6000,i])) for i = 1:n]
   D_thetabar = -2 * sum(log.(loglikelihood(estimator,gamcoef_bar,spatialcof_bar,r)))
   likelihood_iter = zeros(5000,n)
@@ -405,7 +405,7 @@ end
   res = Dict("mean" => estimator, "lower" => lower, "upper" => upper, "parvar" => result_summary[:,3]
     , "mcse" => result_summary[:,5], "ess" => result_summary[:,6])
   return res
-#end
+end
 N_S = 20
 exact_rate = 0.2
 true_beta = [0.5,1]
@@ -450,10 +450,3 @@ end
 data_1 = DataFrame(x1 = data[:,1], x2 = data[:,2], l = data[:,3], u = data[:,4], delta = data[:,5],
         area = data[:,6])
 CSV.write("data.csv",data_1)
-test = zeros(niter)
-for i in 1:6000
-  test[i] = 0.5 * (parspatial[i,:])' * (A .- W) * parspatial[i,:]
-end
-for i in 1:6000
-  test[i] = sum(parspatial[i,:])
-end
