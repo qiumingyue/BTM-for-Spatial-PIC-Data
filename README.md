@@ -7,7 +7,7 @@ The objective of this project is to build functions and algorithms for the semip
 ```adjacency matrix.csv```: dataset of the adjacency matrix
 
 
-```simulated data--PH.csv```: simulated dataset with the true value of $\beta$ is $(0.5, 1)'$:
+```simulated data--PH.csv```: simulated dataset with the true value $(0.5, 1)'$ of $\beta$:
 
  1.  The first two columns are the covariates
  2.  The third column is the left point of the time interval
