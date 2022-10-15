@@ -20,4 +20,4 @@ The objective of this project is to build functions and algorithms for the semip
 ```Functions.jl``` includes some functions created from the model: spline, sampler, likelihood functions and MCMC algorithms, etc. 
 
 
-```analysis. jl``` includes some hyper-parameters settings and instructions on how to run the code.
+```analysis.jl``` includes some hyper-parameters settings and instructions on how to run the code.
